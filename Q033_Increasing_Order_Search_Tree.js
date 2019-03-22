@@ -61,8 +61,6 @@ var increasingBST = function (root) {
             stack.shift()
         }
     }
-    vals = vals.sort((a, b) => a - b)
-    console.log(vals)
     let output = {}
     let cN = output
     while (vals.length) {
