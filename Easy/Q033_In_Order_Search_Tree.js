@@ -54,14 +54,15 @@ var increasingBST = function (root) {
         let currentNode = stack[0]
         if ((currentNode.left || currentNode.right) && !currentNode.visited) {
             if (currentNode.left) stack.unshift(currentNode.left)
-            if (currentNode.right) stack.unshift(currentNode.right)
             currentNode.visited = true
         } else {
-            vals.push(currentNode.val)
-            stack.shift()
+            let temp = stack.shift()
+            vals.push(temp.val)
+            if (temp.right) stack.unshift(temp.right)         
         }
     }
     let output = {}
+    console.log(vals)
     let cN = output
     while (vals.length) {
         cN.val = vals.shift()
